@@ -17,6 +17,19 @@
       --accent-light: #1e3358;
       --border: #2d3143;
       --shadow: 0 1px 4px rgba(0,0,0,0.35);
+      --nav-bg: rgba(15,17,23,0.92);
+    }
+
+    html[data-theme="light"] {
+      --bg: #f9f9f7;
+      --surface: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --border: #e5e7eb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.07);
+      --nav-bg: rgba(249,249,247,0.92);
     }
 
     html { scroll-behavior: smooth; }
@@ -32,7 +45,7 @@
     nav {
       position: sticky;
       top: 0;
-      background: rgba(15,17,23,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
@@ -50,6 +63,22 @@
     nav ul { list-style: none; display: flex; gap: 28px; }
     nav ul a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; transition: color .2s; }
     nav ul a:hover { color: var(--accent); }
+    .theme-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background .2s, border-color .2s, transform .15s;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--accent-light); border-color: var(--accent); transform: scale(1.08); }
 
     /* ── 공통 섹션 ── */
     section { padding: 80px 24px; }
@@ -228,6 +257,7 @@
         <li><a href="#career">경력</a></li>
         <li><a href="#contact">연락처</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">🌙</button>
     </div>
   </nav>
 
@@ -368,6 +398,27 @@
   <footer>
     © 2026 Jason · 기획자 포트폴리오
   </footer>
+
+  <script>
+    const btn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      btn.textContent = '☀️';
+    }
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        btn.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        btn.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 
 </body>
 </html>
