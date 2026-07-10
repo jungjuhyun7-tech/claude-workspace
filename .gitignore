@@ -1,0 +1,30 @@
+# 민감 정보 - 절대 커밋 금지
+.env
+.env.*
+*.key
+*.pem
+id_rsa*
+credentials*
+secrets*
+
+# Claude 로컬 설정 (개인 설정 포함)
+.claude/settings.local.json
+
+# macOS 시스템 파일
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 로그 파일
+*.log
+*.error.log
+
+# 개인 문서 (이력서 등)
+docs/resume.pdf
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
