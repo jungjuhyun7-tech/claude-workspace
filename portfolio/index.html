@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jason | 기획자 포트폴리오</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f9f7;
+      --surface: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #555;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --border: #e5e7eb;
+      --shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    /* ── 네비게이션 ── */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(249,249,247,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    nav .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo { font-weight: 700; font-size: 1.1rem; color: var(--accent); letter-spacing: -0.5px; }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav ul a { text-decoration: none; color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+    nav ul a:hover { color: var(--accent); }
+
+    /* ── 공통 섹션 ── */
+    section { padding: 80px 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 40px; }
+
+    /* ── 히어로 ── */
+    #hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 24px 80px;
+    }
+    .hero-content { max-width: 900px; margin: 0 auto; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .hero-content h1 span { color: var(--accent); }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background .2s, transform .15s;
+    }
+    .hero-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+    /* ── 소개 ── */
+    #about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 1rem; }
+    .about-skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .skill-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+    }
+    .about-stats { display: flex; flex-direction: column; gap: 24px; }
+    .stat-item { padding: 24px; background: var(--bg); border-radius: 12px; border: 1px solid var(--border); }
+    .stat-num { font-size: 2.2rem; font-weight: 700; color: var(--accent); letter-spacing: -1px; }
+    .stat-desc { font-size: 0.88rem; color: var(--text-secondary); margin-top: 4px; }
+
+    /* ── 경력 ── */
+    #career { }
+    .career-list { display: flex; flex-direction: column; gap: 24px; }
+    .career-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 24px;
+      box-shadow: var(--shadow);
+      transition: box-shadow .2s, transform .15s;
+    }
+    .career-item:hover { box-shadow: 0 4px 16px rgba(37,99,235,0.1); transform: translateY(-2px); }
+    .career-role { font-size: 1.1rem; font-weight: 700; }
+    .career-company { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-top: 4px; }
+    .career-period {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      height: fit-content;
+      white-space: nowrap;
+    }
+    .career-desc { grid-column: 1 / -1; color: var(--text-secondary); font-size: 0.93rem; margin-top: 10px; line-height: 1.7; }
+    .career-tags { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .career-tags span {
+      font-size: 0.78rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* ── 연락처 ── */
+    #contact { background: var(--surface); border-top: 1px solid var(--border); }
+    .contact-box {
+      background: var(--accent);
+      border-radius: 20px;
+      padding: 56px 48px;
+      text-align: center;
+      color: white;
+    }
+    .contact-box h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
+    .contact-box p { font-size: 1rem; opacity: 0.85; margin-bottom: 36px; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: white;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      backdrop-filter: blur(4px);
+      transition: background .2s, transform .15s;
+    }
+    .contact-btn:hover { background: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+    /* ── 푸터 ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── 반응형 ── */
+    @media (max-width: 640px) {
+      h2 { font-size: 1.6rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .career-item { grid-template-columns: 1fr; }
+      .career-period { width: fit-content; }
+      .contact-box { padding: 36px 24px; }
+      nav ul { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 네비게이션 -->
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">Jason</span>
+      <ul>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#career">경력</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 히어로 -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-tag">Product Planner · Strategist</div>
+      <h1>안녕하세요,<br /><span>Jason</span>입니다.</h1>
+      <p class="hero-desc">
+        사용자 경험을 중심으로 서비스를 기획하는 기획자입니다.<br />
+        데이터를 읽고 아이디어를 구조화하여, 실제로 동작하는 제품을 만드는 일을 합니다.
+      </p>
+      <a href="#contact" class="hero-cta">연락하기</a>
+    </div>
+  </section>
+
+  <!-- 소개 -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label">About</div>
+      <h2>저는 이런 사람입니다</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            5년간 스타트업과 IT 기업에서 서비스 기획 및 프로덕트 전략을 담당했습니다.
+            사용자 인터뷰부터 스펙 문서 작성, 출시 후 지표 분석까지 제품의 전 생애주기를 경험했습니다.
+          </p>
+          <p>
+            좋은 기획은 "왜"에서 시작한다고 믿습니다. 문제를 정의하고, 가설을 세우고, 검증하는 과정을 즐깁니다.
+          </p>
+          <div class="about-skills">
+            <span class="skill-tag">서비스 기획</span>
+            <span class="skill-tag">UX 리서치</span>
+            <span class="skill-tag">데이터 분석</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Notion</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">애자일</span>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-desc">년간의 서비스 기획 경험</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">12+</div>
+            <div class="stat-desc">출시한 프로덕트 / 기능</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3</div>
+            <div class="stat-desc">근무한 회사</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 경력 -->
+  <section id="career">
+    <div class="container">
+      <div class="section-label">Career</div>
+      <h2>경력 사항</h2>
+      <div class="career-list">
+
+        <div class="career-item">
+          <div>
+            <div class="career-role">서비스 기획 리드</div>
+            <div class="career-company">테크스타트 (TechStart)</div>
+          </div>
+          <div class="career-period">2022.03 – 현재</div>
+          <p class="career-desc">
+            B2C 쇼핑 앱의 추천 알고리즘 기반 개인화 피드 기획을 주도하여 DAU 35% 증가에 기여.
+            PM, 디자이너, 개발자로 구성된 크로스펑셔널 팀을 리드하며 분기별 OKR을 달성했습니다.
+          </p>
+          <div class="career-tags">
+            <span>프로덕트 전략</span><span>개인화 추천</span><span>A/B 테스트</span><span>팀 리드</span>
+          </div>
+        </div>
+
+        <div class="career-item">
+          <div>
+            <div class="career-role">UX 기획자</div>
+            <div class="career-company">핀플로우 (FinFlow)</div>
+          </div>
+          <div class="career-period">2020.07 – 2022.02</div>
+          <p class="career-desc">
+            핀테크 앱의 송금·결제 플로우 전면 개편을 담당. 사용자 인터뷰 20명 수행 후 전환율 개선 방안을 도출,
+            결제 완료율 18% 향상을 이끌었습니다.
+          </p>
+          <div class="career-tags">
+            <span>UX 리서치</span><span>플로우 설계</span><span>Figma</span><span>핀테크</span>
+          </div>
+        </div>
+
+        <div class="career-item">
+          <div>
+            <div class="career-role">서비스 기획자 (주니어)</div>
+            <div class="career-company">그로우랩 (GrowLab)</div>
+          </div>
+          <div class="career-period">2019.03 – 2020.06</div>
+          <p class="career-desc">
+            SaaS 협업툴의 알림·대시보드 기능 기획 및 요구사항 문서 작성.
+            스프린트 기반 개발 프로세스에 적응하며 기획자로서의 기반을 다졌습니다.
+          </p>
+          <div class="career-tags">
+            <span>SaaS</span><span>PRD 작성</span><span>애자일</span><span>Jira</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 연락처 -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h2>함께 일해요</h2>
+      <div class="contact-box">
+        <h3>좋은 제품은 좋은 대화에서 시작됩니다</h3>
+        <p>새로운 프로젝트, 협업 제안, 아이디어 공유 — 무엇이든 편하게 연락 주세요.</p>
+        <div class="contact-links">
+          <a href="mailto:jungjuhyun7@gmail.com" class="contact-btn">
+            ✉️ 이메일 보내기
+          </a>
+          <a href="https://github.com/jungjuhyun7-tech" class="contact-btn" target="_blank">
+            ⌨️ GitHub
+          </a>
+          <a href="https://linkedin.com" class="contact-btn" target="_blank">
+            💼 LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Jason · 기획자 포트폴리오
+  </footer>
+
+</body>
+</html>
