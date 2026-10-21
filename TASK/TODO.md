@@ -19,15 +19,15 @@
 선정: [amitray007/pace](https://github.com/amitray007/pace) (MIT, Claude·Cursor·Grok 등 지원). 코드 점검 완료: 외부 접속은 각 서비스 공식 서버뿐.
 요구사항: macOS 15 이상, Xcode(명령줄 도구만으로는 부족할 수 있음 — 모르겠어요, 빌드 시 확인 필요).
 
-- [ ] 1. 맥 버전 확인: 메뉴  > 이 Mac에 관하여 (15 이상인지)
-- [ ] 2. Xcode 설치 확인: 터미널에서 `xcodebuild -version`
-- [ ] 3. 소스 받기: `git clone https://github.com/amitray007/pace ~/pace`
-- [ ] 4. (선택) 설치 스크립트 직접 훑어보기: `~/pace/Scripts/install-app.sh`, `create-signing-identity.sh`
-- [ ] 5. 설치: `cd ~/pace && make install`
+- [x] 1. 맥 버전 확인: 메뉴  > 이 Mac에 관하여 (15 이상인지)
+- [x] 2. Xcode 설치 확인: 터미널에서 `xcodebuild -version`
+- [x] 3. 소스 받기: `git clone https://github.com/amitray007/pace ~/pace`
+- [x] 4. (선택) 설치 스크립트 직접 훑어보기: `~/pace/Scripts/install-app.sh`, `create-signing-identity.sh`
+- [x] 5. 설치: `cd ~/pace && make install`
   - 하는 일: 로컬 자체서명 인증서를 로그인 키체인에 만들고 신뢰 등록 → Release 빌드 → `/Applications/Pace.app` 설치(기존 Pace.app이 있으면 교체)
-- [ ] 6. 실행: `open -a /Applications/Pace.app` → 메뉴바 아이콘 확인
-- [ ] 7. 키체인 승인: 패널의 "Allow keychain access" → 로그인 암호 입력 → **Always Allow** (Claude Code, Cursor 각각)
-- [ ] 8. Grok 확인: Grok CLI에 로그인되어 있어야 `auth.json`을 읽음
+- [x] 6. 실행: `open -a /Applications/Pace.app` → 메뉴바 아이콘 확인
+- [x] 7. 키체인 승인: 패널의 "Allow keychain access" → 로그인 암호 입력 → **Always Allow** (Claude Code, Cursor 각각)
+- [ ] 8. Grok: CLI 설치·로그인(`grok login`) 후 Pace에서 `Add current Grok account` — 미확인
 - [ ] 9. 확인 후 이 목록 체크, `PROGRESS.md`에 결과 기록
 
 주의
