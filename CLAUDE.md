@@ -63,7 +63,7 @@
 ## 🎯 작업 방식 (6가지 원칙)
 
 ### 1. 큰 작업은 계획부터
-3단계 이상 걸리는 작업은 바로 시작하지 말고 **`tasks/todo.md`에 계획부터** 적어. 계획을 나에게 보여주고 OK 받은 뒤 실행.
+3단계 이상 걸리는 작업은 바로 시작하지 말고 **`TASK/TODO.md`에 계획부터** 적어. 계획을 나에게 보여주고 OK 받은 뒤 실행.
 
 ### 2. "다 했다" 선언 전 동작 확인
 완료 선언 전 **실제로 돌려보고** 결과를 보여줘. "될 것 같아요"는 금지. "확인했어요"만 OK.
@@ -78,8 +78,8 @@
 추측해서 실행하지 마. 모르는 건 **"모르겠어요, 확인이 필요합니다"** 라고 말하고 질문해. 잘못된 자신감보다 솔직함.
 
 ### 6. 작업 기록 남기기
-- **`tasks/todo.md`** — 오늘 할 일 (체크리스트)
-- **`tasks/progress.md`** — 한 일 요약 (append-only)
+- **`TASK/TODO.md`** — 오늘 할 일 (체크리스트)
+- **`PROGRESS.md`** — 한 일 요약 (append-only)
 - 작업 시작 시 todo 확인, 종료 시 progress에 기록
 
 ---
@@ -87,7 +87,7 @@
 ## 📁 내 작업 환경
 
 - **메인 폴더:** `~/claude-workspace`
-- **작업 기록:** `~/claude-workspace/tasks/todo.md`, `tasks/progress.md`
+- **작업 기록:** `~/claude-workspace/TASK/TODO.md`, `PROGRESS.md`
 - **환경변수:** `~/claude-workspace/.env` (절대 공유 금지)
 - **비상 매뉴얼:** `~/claude-workspace/SECURITY.md`
 - **오라클 SSH 키:** `~/.ssh/oracle-server.key`
