@@ -27,8 +27,8 @@
   - 하는 일: 로컬 자체서명 인증서를 로그인 키체인에 만들고 신뢰 등록 → Release 빌드 → `/Applications/Pace.app` 설치(기존 Pace.app이 있으면 교체)
 - [x] 6. 실행: `open -a /Applications/Pace.app` → 메뉴바 아이콘 확인
 - [x] 7. 키체인 승인: 패널의 "Allow keychain access" → 로그인 암호 입력 → **Always Allow** (Claude Code, Cursor 각각)
-- [ ] 8. Grok: CLI 설치·로그인(`grok login`) 후 Pace에서 `Add current Grok account` — 미확인
-- [ ] 9. 확인 후 이 목록 체크, `PROGRESS.md`에 결과 기록
+- [x] 8. Grok: CLI 설치·로그인 후 Pace에 표시 확인
+- [x] 9. 확인 후 이 목록 체크, `PROGRESS.md`에 결과 기록
 
 주의
 - 업데이트(새로 빌드)할 때마다 키체인 승인을 다시 해야 함 (서명 없는 앱의 macOS 규칙).

@@ -25,3 +25,5 @@
   - 미확인 위험: Pace의 토큰 갱신이 Claude Code 로그인에 영향을 주는지 (현재까지 이상 보고 없음)
 - CLAUDE.md의 기록 파일 경로를 실제 파일명(`TASK/TODO.md`, `PROGRESS.md`)에 맞춰 수정
 - 참고: Pace를 다시 빌드할 때마다 키체인 승인을 서비스별로 다시 해야 함
+
+- (2026-10-21 추가) 확인 완료: Pace 패널에서 Claude, Cursor, Grok 사용량 모두 정상 표시 (사용자 확인)
